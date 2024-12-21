@@ -97,6 +97,46 @@
             background-color: #BAFFF5;
             color: #496580;
         }
+
+        .chat-bar {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+        }
+
+        .chat-bar input {
+            width: 70%;
+            padding: 10px;
+            border: 2px solid #BAFFF5;
+            border-radius: 25px;
+            font-size: 16px;
+        }
+
+        .chat-bar button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            border: none;
+            background-color: #496580;
+            color: #ffffff;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .chat-bar button:hover {
+            background-color: #BAFFF5;
+            color: #496580;
+        }
+
+        .response {
+            margin-top: 20px;
+            color: #496580;
+            font-size: 1em;
+        }
     </style>
 </head>
 <body>
@@ -134,5 +174,61 @@
             </div>
         </div>
     </div>
+
+    <div class="chat-bar">
+        <h2>Ask Us Anything</h2>
+        <input type="text" id="userQuestion" placeholder="Type your question here...">
+        <button onclick="getAnswer()">Ask</button>
+        <div id="response" class="response"></div>
+    </div>
+
+    <script>
+    async function getAnswer() {
+    const question = document.getElementById('userQuestion').value;
+    const responseDiv = document.getElementById('response');
+
+    if (!question.trim()) {
+        responseDiv.textContent = 'Please type a question.';
+        return;
+    }
+
+    responseDiv.textContent = 'Thinking...';
+
+    try {
+         const apiKey = "AIzaSyDVEb60LxYB2kEiQ5TEkC4BApRgiTru8tM"; // Using the key you provided. **USE WITH CAUTION**
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent`, { // Corrected API endpoint
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+               'x-goog-api-key': apiKey  // Use x-goog-api-key header
+            },
+            body: JSON.stringify({
+                 contents: [
+                    {
+                        parts: [
+                          { text: question}
+                          ]
+                    }
+                ],
+                generationConfig: {
+                    maxOutputTokens: 100,
+                   temperature: 0.7
+                  }
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status} - ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        const generatedText = data.candidates[0].content.parts[0].text;
+        responseDiv.textContent = generatedText.trim();
+    } catch (error) {
+        responseDiv.textContent = 'Sorry, something went wrong. Please try again later.';
+        console.error('Error:', error);
+    }
+}
+    </script>
 </body>
 </html>
