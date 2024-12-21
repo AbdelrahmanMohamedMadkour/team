@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Portfolio</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #BADDFF, #BAFFF5);
+            text-align: center;
+        }
+
+        .team {
+            padding: 50px;
+            background: #ffffff;
+            border-radius: 16px;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 1200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .team h1 {
+            color: #496580;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        .team p {
+            color: #496580;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+        }
+
+        .team-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .member {
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            width: 260px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .member:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .member img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #BAFFF5;
+        }
+
+        .member h2 {
+            color: #496580;
+            margin: 10px 0 5px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .member h3 {
+            color: #BAFFF5;
+            margin: 0 0 15px;
+            font-size: 16px;
+            font-style: italic;
+        }
+
+        .member a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #496580;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .member a:hover {
+            background-color: #BAFFF5;
+            color: #496580;
+        }
+    </style>
+</head>
+<body>
+    <div class="team">
+        <h1>Our Team</h1>
+        <p>Meet our talented team members</p>
+
+        <div class="team-container">
+            <div class="member">
+                <img src="WhatsApp Image 2024-12-20 at 21.49.06_925156c6.jpg" alt="Abdelrahman">
+                <h2>Abdelrahman</h2>
+                <h3>CEO</h3>
+                <a href="https://abdelrahmanmohamedmadkour.github.io/Portflio/" target="_blank">View Portfolio</a>
+            </div>
+
+            <div class="member">
+                <img src="123.jpg" alt="Mariem">
+                <h2>Mariem</h2>
+                <h3>Manager</h3>
+                <a href="https://mariemmohamedibrahim.github.io/portfolio/" target="_blank">View Portfolio</a>
+            </div>
+
+            <div class="member">
+                <img src="312.jpg" alt="Wesam">
+                <h2>Wesam</h2>
+                <h3>Marketing</h3>
+                <a href="https://github.com/WESAM277/portfolioo/blob/main/HTMLPage2.html" target="_blank">View Portfolio</a>
+            </div>
+
+            <div class="member">
+                <img src="Amr.jpg" alt="Amr">
+                <h2>Amr</h2>
+                <h3>Developer</h3>
+                <a href="https://amr1581.github.io/portfolio/" target="_blank">View Portfolio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
